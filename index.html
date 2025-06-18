@@ -1,76 +1,184 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cinghi Pro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --green-dark: #1c440f;
-      --green-light: #a8e06f;
-      --orange: #ff7426;
-      --white: #fff;
-      --bg-overlay: rgba(28,68,15,0.6);
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cinghi Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --green-dark: #1c440f;
+    --green-light: #a8e06f;
+    --orange: #ff7426;
+    --white: #fff;
+    --bg-overlay: rgba(28, 68, 15, 0.6);
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    color: #111;
+    overflow-x: hidden;
+  }
+  /* CONTENITORE ANIMAZIONE INIZIALE */
+  #intro {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: url('forest-bg.jpg') center center / cover no-repeat;
+    animation: backgroundMove 20s linear infinite;
+  }
+  #intro::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg-overlay);
+    pointer-events: none;
+  }
+
+  /* CINGHIALE */
+  #boar {
+    position: absolute;
+    bottom: 20%;
+    left: -200px;
+    width: 180px;
+    animation: runBoar 6s ease-in-out forwards;
+    z-index: 10;
+  }
+
+  /* FARFALLA */
+  #butterfly {
+    position: absolute;
+    top: 30%;
+    left: -100px;
+    width: 60px;
+    animation: flyButterfly 5s ease-in-out 6s forwards; /* parte dopo il cinghiale */
+    z-index: 12;
+  }
+
+  /* LOGO */
+  #logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    max-width: 80vw;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: fadeInLogo 2s ease forwards;
+    animation-delay: 11.5s; /* dopo cinghiale+farfalla */
+    z-index: 15;
+  }
+
+  /* CONTENUTO TESTUALE - nascosto fino a fine animazione */
+  main#content {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem 1rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  main#content.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+  h1 {
+    color: var(--orange);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  footer {
+    background: var(--green-dark);
+    color: var(--green-light);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* ANIMAZIONI */
+  @keyframes backgroundMove {
+    0% { background-position: center 0; }
+    100% { background-position: center -100px; }
+  }
+  @keyframes runBoar {
+    0% {
+      left: -200px;
+      opacity: 1;
+      transform: scaleX(1);
     }
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{font-family:'Montserrat',sans-serif;color:#111;}
-    .hero {
-      position:relative; min-height:60vh;
-      background:url('forest-bg.jpg') center/cover no-repeat;
-      display:flex; align-items:center; justify-content:center;
+    50% {
+      opacity: 1;
     }
-    .hero::after {
-      content:'';
-      position:absolute;inset:0;
-      background:var(--bg-overlay);
+    100% {
+      left: 110vw;
+      opacity: 0;
+      transform: scaleX(1);
     }
-    .hero img {
-      position:relative;
-      width:80%;max-width:300px;
-      animation:fadeIn 1.5s ease-out;
+  }
+  @keyframes flyButterfly {
+    0% {
+      left: -100px;
+      top: 30%;
+      opacity: 1;
+      transform: rotate(0deg);
     }
-    main {
-      padding:2rem 1rem;
-      max-width:800px; margin:auto;
+    50% {
+      top: 20%;
+      transform: rotate(15deg);
     }
-    section {
-      margin-bottom:2rem;
-      opacity:0; transform:translateY(30px);
-      transition:opacity .6s ease,transform .6s ease;
+    100% {
+      left: 110vw;
+      top: 25%;
+      opacity: 0;
+      transform: rotate(-10deg);
     }
-    section.visible {
-      opacity:1; transform:translateY(0);
+  }
+  @keyframes fadeInLogo {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.5rem;
     }
-    h1 {color:var(--orange);font-size:1.8rem;margin-bottom:1rem;text-align:center;}
-    p {margin-bottom:1rem;line-height:1.7;}
-    footer {
-      background:var(--green-dark);
-      color:var(--green-light);
-      text-align:center;
-      padding:1rem;
-      font-size:0.9rem;
+    #boar {
+      width: 120px;
+      bottom: 15%;
     }
-    @keyframes fadeIn {
-      0%{opacity:0;}
-      100%{opacity:1;}
+    #butterfly {
+      width: 40px;
     }
-    @media (max-width:600px){
-      .hero img {width:70%;}
-      h1 {font-size:1.5rem;}
+    #logo {
+      width: 180px;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <div class="hero">
-    <img src="Siglalungacinghi.png" alt="Logo Cinghi Pro">
+  <!-- ANIMAZIONE INIZIALE -->
+  <div id="intro">
+    <img id="boar" src="cinghiale.png" alt="Cinghiale che corre" />
+    <img id="butterfly" src="farfalla.png" alt="Farfalla che vola" />
+    <img id="logo" src="Siglalungacinghi.png" alt="Logo Cinghi Pro" />
   </div>
 
-  <!-- CONTENUTO -->
-  <main id="content">
+  <!-- CONTENUTO PRINCIPALE -->
+  <main id="content" aria-hidden="true">
     <section>
       <h1>Perché è nata Cinghi Pro?</h1>
       <p>Negli ultimi anni sempre più frequentemente assistiamo alla presenza dei cinghiali nelle aree urbane. Un fenomeno che a prima vista può suscitare sorpresa e persino timore. Tuttavia è fondamentale comprendere che questa convivenza forzata non è una colpa attribuibile agli animali stessi, bensì una diretta conseguenza delle trasformazioni operate dall’uomo sull’ambiente naturale.</p>
@@ -87,13 +195,24 @@
     © 2025 Cinghi Pro — Tutti i diritti riservati
   </footer>
 
-  <script>
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, {threshold:0.2});
-    sections.forEach(s => observer.observe(s));
-  </script>
+<script>
+  // Dopo circa 14 secondi (animazioni + fadein logo) mostra il contenuto e abilita scroll
+  setTimeout(() => {
+    document.getElementById('intro').style.display = 'none';
+    const mainContent = document.getElementById('content');
+    mainContent.classList.add('visible');
+    mainContent.setAttribute('aria-hidden', 'false');
+  }, 14000);
+
+  // Intersection observer per animare le sezioni se vuoi mantenerlo
+  const sections = document.querySelectorAll('main#content section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+  sections.forEach(s => observer.observe(s));
+</script>
 
 </body>
 </html>
@@ -101,5 +220,6 @@
 
 
 
+  
    
     
