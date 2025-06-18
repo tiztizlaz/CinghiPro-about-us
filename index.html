@@ -1,221 +1,151 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Cinghi Pro</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --green-dark: #1c440f;
-    --green-light: #a8e06f;
-    --orange: #ff7426;
-    --white: #fff;
-    --bg-overlay: rgba(28, 68, 15, 0.6);
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Montserrat', sans-serif;
-    color: #111;
-    overflow-x: hidden;
-  }
-  /* CONTENITORE ANIMAZIONE INIZIALE */
-  #intro {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    background: url('forest-bg.jpg') center center / cover no-repeat;
-    animation: backgroundMove 20s linear infinite;
-  }
-  #intro::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--bg-overlay);
-    pointer-events: none;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cinghi Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark: #1c440f;
+      --green-mid: #355e2c;
+      --white: #ffffff;
+      --bg-overlay: rgba(28, 68, 15, 0.6);
+    }
 
-  /* CINGHIALE */
-  #boar {
-    position: absolute;
-    bottom: 20%;
-    left: -200px;
-    width: 180px;
-    animation: runBoar 6s ease-in-out forwards;
-    z-index: 10;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* FARFALLA */
-  #butterfly {
-    position: absolute;
-    top: 30%;
-    left: -100px;
-    width: 60px;
-    animation: flyButterfly 5s ease-in-out 6s forwards; /* parte dopo il cinghiale */
-    z-index: 12;
-  }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--white);
+      overflow-x: hidden;
+      background-color: var(--green-mid);
+    }
 
-  /* LOGO */
-  #logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 280px;
-    max-width: 80vw;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: fadeInLogo 2s ease forwards;
-    animation-delay: 11.5s; /* dopo cinghiale+farfalla */
-    z-index: 15;
-  }
+    /* INTRO BACKGROUND */
+    #intro {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background: url('forest-bg.jpg') center center / cover no-repeat;
+      animation: backgroundMove 20s linear infinite;
+    }
 
-  /* CONTENUTO TESTUALE - nascosto fino a fine animazione */
-  main#content {
-    max-width: 800px;
-    margin: auto;
-    padding: 2rem 1rem;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  main#content.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    #intro::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--bg-overlay);
+      pointer-events: none;
+    }
 
-  section {
-    margin-bottom: 2rem;
-  }
-  h1 {
-    color: var(--orange);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  p {
-    margin-bottom: 1rem;
-    line-height: 1.7;
-  }
-  footer {
-    background: var(--green-dark);
-    color: var(--green-light);
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-
-  /* ANIMAZIONI */
-  @keyframes backgroundMove {
-    0% { background-position: center 0; }
-    100% { background-position: center -100px; }
-  }
-  @keyframes runBoar {
-    0% {
-      left: -200px;
-      opacity: 1;
-      transform: scaleX(1);
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      left: 110vw;
-      opacity: 0;
-      transform: scaleX(1);
-    }
-  }
-  @keyframes flyButterfly {
-    0% {
-      left: -100px;
-      top: 30%;
-      opacity: 1;
-      transform: rotate(0deg);
-    }
-    50% {
-      top: 20%;
-      transform: rotate(15deg);
-    }
-    100% {
-      left: 110vw;
-      top: 25%;
-      opacity: 0;
-      transform: rotate(-10deg);
-    }
-  }
-  @keyframes fadeInLogo {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 1.5rem;
-    }
-    #boar {
-      width: 120px;
-      bottom: 15%;
-    }
-    #butterfly {
-      width: 40px;
-    }
+    /* LOGO ANIMATO */
     #logo {
-      width: 180px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 280px;
+      max-width: 80vw;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      animation: fadeInLogo 2s ease forwards;
+      animation-delay: 2s;
+      z-index: 15;
     }
-  }
-</style>
+
+    /* CONTENUTO PRINCIPALE */
+    main#content {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 1rem;
+      background-color: var(--green-mid);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    main#content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      color: var(--white);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ANIMAZIONI */
+    @keyframes backgroundMove {
+      0% { background-position: center 0; }
+      100% { background-position: center -100px; }
+    }
+
+    @keyframes fadeInLogo {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      #logo {
+        width: 180px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ANIMAZIONE INIZIALE -->
+  <!-- INTRO -->
   <div id="intro">
-    <img id="boar" src="cinghialecorsa-removebg-preview.png" alt="Cinghiale che corre" />
-    <img id="butterfly" src="farfalla.png" alt="Farfalla che vola" />
     <img id="logo" src="Siglalungacinghi.png" alt="Logo Cinghi Pro" />
   </div>
 
-  <!-- CONTENUTO PRINCIPALE -->
+  <!-- CONTENUTO -->
   <main id="content" aria-hidden="true">
     <section>
       <h1>Perché è nata Cinghi Pro?</h1>
       <p>Negli ultimi anni sempre più frequentemente assistiamo alla presenza dei cinghiali nelle aree urbane. Un fenomeno che a prima vista può suscitare sorpresa e persino timore. Tuttavia è fondamentale comprendere che questa convivenza forzata non è una colpa attribuibile agli animali stessi, bensì una diretta conseguenza delle trasformazioni operate dall’uomo sull’ambiente naturale.</p>
       <p>I cinghiali, animali abituati a vivere nelle campagne e nei boschi, si trovano spinti verso le città a causa della progressiva riduzione e frammentazione del loro habitat originario e alla carenza di cibo. Le vaste aree verdi vengono sostituite da insediamenti abitativi, infrastrutture e vie di comunicazione costringendo questi animali a cercare nuove fonti di cibo e rifugio in contesti sempre meno idonei.</p>
-      <p>Questa dinamica rappresenta una testimonianza tangibile di come le nostre scelte possano influire negativamente sulla biodiversità e sull’equilibrio degli ecosistemi. È dunque indispensabile adottare un atteggiamento di rispetto e convivenza che tenga conto delle esigenze di tutte le specie coinvolte, evitando potiliche scellerate di abbattimento o di sterilizzazione forzate.</p>
+      <p>Questa dinamica rappresenta una testimonianza tangibile di come le nostre scelte possano influire negativamente sulla biodiversità e sull’equilibrio degli ecosistemi. È dunque indispensabile adottare un atteggiamento di rispetto e convivenza che tenga conto delle esigenze di tutte le specie coinvolte, evitando politiche scellerate di abbattimento o di sterilizzazione forzate.</p>
       <p>L’applicazione che presentiamo nasce con spirito leggero e informale. Non si propone come un mezzo scientifico né tantomeno come uno strumento di emergenza per allontanare o gestire gli incontri con i cinghiali in città. Piuttosto vuole essere un piccolo contributo, un suggerimento non invasivo per favorire una convivenza armoniosa, offrendo strategie di dissuasione non aggressive.</p>
       <p>In definitiva questa applicazione rappresenta un invito alla riflessione: sulla responsabilità che abbiamo nei confronti dell’ambiente che ci circonda, sulla necessità di rispettare la natura, e sulla possibilità di costruire un rapporto più inclusivo con tutte le forme di vita con cui condividiamo il nostro territorio.</p>
       <p><strong>Cinghi Pro 2025 — Tiziano Lazzari</strong></p>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Cinghi Pro — Tutti i diritti riservati
-  </footer>
-
 <script>
-  // Dopo circa 14 secondi (animazioni + fadein logo) mostra il contenuto e abilita scroll
+  // Dopo 5 secondi mostra il contenuto
   setTimeout(() => {
     document.getElementById('intro').style.display = 'none';
     const mainContent = document.getElementById('content');
     mainContent.classList.add('visible');
     mainContent.setAttribute('aria-hidden', 'false');
-  }, 14000);
-
-  // Intersection observer per animare le sezioni se vuoi mantenerlo
-  const sections = document.querySelectorAll('main#content section');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.2 });
-  sections.forEach(s => observer.observe(s));
+  }, 5000);
 </script>
 
 </body>
 </html>
+
+ 
+   
 
 
 
