@@ -1,57 +1,175 @@
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: 'Poppins', sans-serif;
-  background:#fff;
-  color:#333;
-}
-header {
-  background:#2a4d14;
-  text-align:center;
-  padding:1rem;
-}
-header .logo { max-width:90%; height:auto; }
-header .slogan {
-  color:#eee;
-  font-weight:300;
-  margin-top:0.5rem;
-}
-main {
-  padding:1rem;
-}
-h1 {
-  color:#e67e22;
-  margin-bottom:0.5rem;
-}
-p {
-  line-height:1.6;
-  margin-bottom:1rem;
-}
-footer {
-  background:#f5f5f5;
-  padding:1rem;
-  text-align:center;
-}
-footer .cta {
-  background:#8bc34a;
-  color:#fff;
-  border:none;
-  padding:0.75rem 1.5rem;
-  font-size:1rem;
-  border-radius:5px;
-  cursor:pointer;
-  transition: background .3s;
-}
-footer .cta:hover {
-  background:#7cb342;
-}
-footer p {
-  font-size:0.9rem;
-  color:#777;
-  margin-top:0.5rem;
-}
-@media (min-width:600px) {
-  main {
-    max-width:600px;
-    margin:0 auto;
-  }
-}
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinghi Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* RESET BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f7fff6;
+      color: #1a1a1a;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #1c440f;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header img {
+      width: 90%;
+      max-width: 360px;
+      height: auto;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    main {
+      padding: 1.5rem 1rem;
+      max-width: 800px;
+      margin: auto;
+      animation: slideUp 1s ease-out;
+    }
+
+    h1, h2, h3 {
+      color: #ff7f32;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: #2e2e2e;
+      font-weight: 300;
+    }
+
+    section {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: #ffffff;
+      border-left: 4px solid #8bc34a;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    footer {
+      background: #1c440f;
+      color: #d4f5c6;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .cta-button {
+      background: #8bc34a;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background: #7cb342;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 1rem 0.75rem;
+      }
+
+      h1, h2 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <header>
+    <img src="Siglalungacinghi.png" alt="Cinghi Pro Logo" />
+  </header>
+
+  <!-- CONTENUTO -->
+  <main>
+
+    <!-- ⚠️ INCOLLO QUI IL TESTO ORIGINALE CON SOLO 'EcoBoars' CAMBIATO IN 'Cinghi Pro' -->
+
+    <section>
+      <h1>Cinghi Pro 2025</h1>
+      <p>
+        Benvenuti nel sito ufficiale di Cinghi Pro ITA 2025. Questo sito raccoglie tutte le informazioni relative al nostro progetto, documentazione, team, risorse e aggiornamenti. 
+        La nostra missione è sviluppare soluzioni sostenibili e innovative per l’ambiente.
+      </p>
+    </section>
+
+    <section>
+      <h2>Chi siamo</h2>
+      <p>
+        Cinghi Pro è una community di studenti, ingegneri e appassionati di tecnologia verde che collabora per creare progetti open-source eco-sostenibili. 
+        Il progetto nasce con l'obiettivo di partecipare alla competizione internazionale Eco Green Challenge 2025.
+      </p>
+    </section>
+
+    <section>
+      <h2>Obiettivi del progetto</h2>
+      <p>
+        Il nostro obiettivo è costruire un veicolo elettrico 4x4, a basso impatto ambientale, in grado di affrontare terreni difficili.
+        Il tutto utilizzando materiali riciclati, tecnologie a basso consumo e software libero.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contattaci</h2>
+      <p>
+        Per ulteriori informazioni, richieste o collaborazioni, scrivici a: info@cinghipro.it
+      </p>
+      <button class="cta-button">Scrivici ora</button>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Cinghi Pro — Tutti i diritti riservati
+  </footer>
+
+</body>
+</html>
