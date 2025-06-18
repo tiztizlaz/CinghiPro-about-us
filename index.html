@@ -1,144 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cinghi Pro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --green-dark: #1c440f;
       --green-light: #a8e06f;
       --orange: #ff7426;
-      --white: #ffffff;
-      --bg-light: #f6fff2;
-      --text-dark: #1b1b1b;
+      --white: #fff;
+      --bg-overlay: rgba(28,68,15,0.6);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Montserrat',sans-serif;color:#111;}
+    .hero {
+      position:relative; min-height:60vh;
+      background:url('forest-bg.jpg') center/cover no-repeat;
+      display:flex; align-items:center; justify-content:center;
     }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      padding-bottom: 4rem;
+    .hero::after {
+      content:'';
+      position:absolute;inset:0;
+      background:var(--bg-overlay);
     }
-
-    header {
-      background-color: var(--green-dark);
-      padding: 2rem 1rem;
-      text-align: center;
+    .hero img {
+      position:relative;
+      width:80%;max-width:300px;
+      animation:fadeIn 1.5s ease-out;
     }
-
-    header img {
-      max-width: 320px;
-      width: 90%;
-      height: auto;
-      animation: fadeIn 1.2s ease-out;
-    }
-
     main {
-      padding: 2rem 1.2rem;
-      max-width: 800px;
-      margin: auto;
-      animation: slideUp 0.8s ease-out;
+      padding:2rem 1rem;
+      max-width:800px; margin:auto;
     }
-
-    h1 {
-      color: var(--orange);
-      font-size: 1.8rem;
-      margin-bottom: 1.2rem;
-      text-align: center;
-    }
-
-    p {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 1.4rem;
-    }
-
-    footer {
-      background-color: var(--green-dark);
-      color: var(--green-light);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.95rem;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
-      left: 0;
-    }
-
     section {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
-      margin-bottom: 2rem;
+      margin-bottom:2rem;
+      opacity:0; transform:translateY(30px);
+      transition:opacity .6s ease,transform .6s ease;
     }
-
+    section.visible {
+      opacity:1; transform:translateY(0);
+    }
+    h1 {color:var(--orange);font-size:1.8rem;margin-bottom:1rem;text-align:center;}
+    p {margin-bottom:1rem;line-height:1.7;}
+    footer {
+      background:var(--green-dark);
+      color:var(--green-light);
+      text-align:center;
+      padding:1rem;
+      font-size:0.9rem;
+    }
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      0%{opacity:0;}
+      100%{opacity:1;}
     }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
+    @media (max-width:600px){
+      .hero img {width:70%;}
+      h1 {font-size:1.5rem;}
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- HERO -->
+  <div class="hero">
     <img src="Siglalungacinghi.png" alt="Logo Cinghi Pro">
-  </header>
+  </div>
 
-  <main>
+  <!-- CONTENUTO -->
+  <main id="content">
     <section>
       <h1>Perché è nata Cinghi Pro?</h1>
-      <p>
-        Negli ultimi anni sempre più frequentemente assistiamo alla presenza dei cinghiali nelle aree urbane. Un fenomeno che a prima vista può suscitare sorpresa e persino timore. Tuttavia è fondamentale comprendere che questa convivenza forzata non è una colpa attribuibile agli animali stessi, bensì una diretta conseguenza delle trasformazioni operate dall’uomo sull’ambiente naturale.
-      </p>
-      <p>
-        I cinghiali, animali abituati a vivere nelle campagne e nei boschi, si trovano spinti verso le città a causa della progressiva riduzione e frammentazione del loro habitat originario e alla carenza di cibo. Le vaste aree verdi vengono sostituite da insediamenti abitativi, infrastrutture e vie di comunicazione costringendo questi animali a cercare nuove fonti di cibo e rifugio in contesti sempre meno idonei.
-      </p>
-      <p>
-        Questa dinamica rappresenta una testimonianza tangibile di come le nostre scelte possano influire negativamente sulla biodiversità e sull’equilibrio degli ecosistemi. È dunque indispensabile adottare un atteggiamento di rispetto e convivenza che tenga conto delle esigenze di tutte le specie coinvolte, evitando potiliche scellerate di abbattimento o di sterilizzazione forzate.
-      </p>
-      <p>
-        L’applicazione che presentiamo nasce con spirito leggero e informale. Non si propone come un mezzo scientifico né tantomeno come uno strumento di emergenza per allontanare o gestire gli incontri con i cinghiali in città. Piuttosto vuole essere un piccolo contributo, un suggerimento non invasivo per favorire una convivenza armoniosa, offrendo strategie di dissuasione non aggressive.
-      </p>
-      <p>
-        In definitiva questa applicazione rappresenta un invito alla riflessione: sulla responsabilità che abbiamo nei confronti dell’ambiente che ci circonda, sulla necessità di rispettare la natura, e sulla possibilità di costruire un rapporto più inclusivo con tutte le forme di vita con cui condividiamo il nostro territorio.
-      </p>
+      <p>Negli ultimi anni sempre più frequentemente assistiamo alla presenza dei cinghiali nelle aree urbane. Un fenomeno che a prima vista può suscitare sorpresa e persino timore. Tuttavia è fondamentale comprendere che questa convivenza forzata non è una colpa attribuibile agli animali stessi, bensì una diretta conseguenza delle trasformazioni operate dall’uomo sull’ambiente naturale.</p>
+      <p>I cinghiali, animali abituati a vivere nelle campagne e nei boschi, si trovano spinti verso le città a causa della progressiva riduzione e frammentazione del loro habitat originario e alla carenza di cibo. Le vaste aree verdi vengono sostituite da insediamenti abitativi, infrastrutture e vie di comunicazione costringendo questi animali a cercare nuove fonti di cibo e rifugio in contesti sempre meno idonei.</p>
+      <p>Questa dinamica rappresenta una testimonianza tangibile di come le nostre scelte possano influire negativamente sulla biodiversità e sull’equilibrio degli ecosistemi. È dunque indispensabile adottare un atteggiamento di rispetto e convivenza che tenga conto delle esigenze di tutte le specie coinvolte, evitando potiliche scellerate di abbattimento o di sterilizzazione forzate.</p>
+      <p>L’applicazione che presentiamo nasce con spirito leggero e informale. Non si propone come un mezzo scientifico né tantomeno come uno strumento di emergenza per allontanare o gestire gli incontri con i cinghiali in città. Piuttosto vuole essere un piccolo contributo, un suggerimento non invasivo per favorire una convivenza armoniosa, offrendo strategie di dissuasione non aggressive.</p>
+      <p>In definitiva questa applicazione rappresenta un invito alla riflessione: sulla responsabilità che abbiamo nei confronti dell’ambiente che ci circonda, sulla necessità di rispettare la natura, e sulla possibilità di costruire un rapporto più inclusivo con tutte le forme di vita con cui condividiamo il nostro territorio.</p>
       <p><strong>Cinghi Pro 2025 — Tiziano Lazzari</strong></p>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     © 2025 Cinghi Pro — Tutti i diritti riservati
   </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold:0.2});
+    sections.forEach(s => observer.observe(s));
+  </script>
 
 </body>
 </html>
